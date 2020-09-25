@@ -1,12 +1,25 @@
 #!/bin/bash
 
 echo "I'm not ready yet..."
-WHOAMI=bah
+
+WHOAMI=user
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root, exiting." 
    exit 1
 fi
+yum update -y
+yum groupinstall -y 'Development Tools'
+yum install -y \
+   openssl-devel \
+   libuuid-devel \
+   libseccomp-devel \
+   wget \
+   git \
+   vim \
+   squashfs-tools \
+   cryptsetup \
+   gpgme
 
 singularity_install() {
 echo "Installing Go"
@@ -76,4 +89,7 @@ container_building() {
 	fi
     fi
 }
+
+
+su -m $WHOAMI -c "bash -c home_config $USERDIR"
 
