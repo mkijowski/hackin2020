@@ -32,18 +32,20 @@ export VERSION=1.13.1 OS=linux ARCH=amd64 && \
 
 echo '
 ' >> ~/.bashrc
-echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
-    echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
+    echo 'export PATH=/usr/local/go/bin:${PATH}' >> ~/.bashrc && \
     source ~/.bashrc
+else
+    export PATH=/usr/local/go/bin:${PATH}
 fi
 
-export VERSION=3.6.3 && \
-    wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+if [ ! -f /usr/local/bin/singularity ]; then
+    export VERSION=3.6.3 && \
     tar -xzf singularity-$VERSION.tar.gz && \
     cd ./singularity && \
     ./mconfig && \
     make -C ./builddir && \
     make -C ./builddir install
+    fi
 }
 
 home_config() {
@@ -69,24 +71,24 @@ container_building() {
 	if [ -f /home/$WHOAMI/.singularity/avrdude.sif ]; then
 	    read -p "avrdude.sif exists, rebuild? (y/n):" avrconfirm
 	else
-	    singularity build /home/$WHOAMI/.singularity/avrdude.sif ./buildfiles/avrdude.build
+	    /usr/local/bin/singularity build /home/$WHOAMI/.singularity/avrdude.sif ./buildfiles/avrdude.build
 	fi
 	
 	if [[ $avrconfirm == [yY] || $avrconfirm == [yY][eE][sS] ]]; then
 	    rm /home/$WHOAMI/.singularity/avrdude.sif
-	    singularity build /home/$WHOAMI/.singularity/avrdude.sif ./buildfiles/avrdude.build
+	    /usr/local/bin/singularity build /home/$WHOAMI/.singularity/avrdude.sif ./buildfiles/avrdude.build
 	fi
     fi
     if [ -f ./buildfiles/r2ghidra.build ]; then
 	if [ -f /home/$WHOAMI/.singularity/r2ghidra.sif ]; then
 	    read -p "r2ghidra.sif exists, rebuild? (y/n):" r2gconfirm
 	else
-	    singularity build /home/$WHOAMI/.singularity/r2ghidra.sif ./buildfiles/r2ghidra.build
+	    /usr/local/bin/singularity build /home/$WHOAMI/.singularity/r2ghidra.sif ./buildfiles/r2ghidra.build
 	fi
 	
 	if [[ $r2gconfirm == [yY] || $r2gconfirm == [yY][eE][sS] ]]; then
 	    rm /home/$WHOAMI/.singularity/r2ghidra.sif
-	    singularity build /home/$WHOAMI/.singularity/r2ghidra.sif ./buildfiles/r2ghidra.build
+	    /usr/local/bin/singularity build /home/$WHOAMI/.singularity/r2ghidra.sif ./buildfiles/r2ghidra.build
 	fi
     fi
 }
