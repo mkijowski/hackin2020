@@ -37,7 +37,7 @@ echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
     source ~/.bashrc
 fi
 
-export VERSION=v3.6.3 && \
+export VERSION=3.6.3 && \
     wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
     tar -xzf singularity-$VERSION.tar.gz && \
     cd ./singularity && \
