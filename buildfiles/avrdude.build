@@ -1,0 +1,51 @@
+bootstrap:docker
+From:ubuntu
+
+%post
+
+    ## tzdata needs input for location, this prevents interactive lookup
+    export DEBIAN_FRONTEND=noninteractive
+    ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+
+    apt update
+    apt install -y \
+	wget \
+	git \
+	gcc \
+	make \
+	cmake \
+	apt-utils \
+	libusb-dev \
+	libelf-dev \
+	libftdi-dev \
+	byacc \
+	dfu-util \
+	dfu-programmer \
+	avr-libc \
+	python3 \
+	python3-pip \
+	gcc-arm-none-eabi \
+	gcc-avr \
+	flex
+
+    ## finish tzdata config
+    dpkg-reconfigure --frontend noninteractive tzdata
+
+    AVRDUDE_VER=avrdude-6.3.tar.gz
+    VER=6.3
+    wget http://download-mirror.savannah.gnu.org/releases/avrdude/$AVRDUDE_VER
+    tar -xvpzf $AVRDUDE_VER
+    
+    cd avrdude-$VER
+    ./configure
+    make
+    make install
+    
+    cd ..
+
+    rm -rf avrdude-$VER
+    rm $AVRDUDE_VER
+    
+    python3 -m pip install qmk
+    yes | qmk setup
+

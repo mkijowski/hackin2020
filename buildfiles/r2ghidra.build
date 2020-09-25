@@ -1,0 +1,40 @@
+bootstrap:docker
+From:ubuntu
+
+%post
+    apt update
+    ## tzdata needs input for location, this prevents interactive lookup
+    export DEBIAN_FRONTEND=noninteractive
+    ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+
+    apt install -y \
+	wget \
+	vim \
+	unzip \
+	git \
+	gcc \
+	make \
+	openjdk-11-jdk \
+	cmake
+
+    ## finish tzdata config
+    dpkg-reconfigure --frontend noninteractive tzdata
+
+    GHIDRA_VER=ghidra_9.1.2_PUBLIC_20200212.zip
+    R2_LOC=4.5.0-git
+    R2_VER=radare2_4.5.0-git_amd64.deb
+    R2GHIDRA_VER=r2ghidra-dec_4.5.0-git_amd64.deb
+
+    wget https://ghidra-sre.org/$GHIDRA_VER -O ghidra.zip
+    wget http://radare.mikelloc.com/get/$R2_LOC/$R2_VER
+    wget http://radare.mikelloc.com/get/$R2_LOC/$R2GHIDRA_VER
+
+    dpkg -i $R2_VER
+    dpkg -i $R2GHIDRA_VER
+    unzip ghidra.zip -d /opt/
+    ln -s /opt/ghidra_9.1.2_PUBLIC/ghidraRun /usr/local/bin/ghidra
+
+    rm $R2_VER
+    rm $R2GHIDRA_VER
+    rm ghidra.zip
+
