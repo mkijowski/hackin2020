@@ -22,8 +22,8 @@ def connect(wordlist):
     for word in wordlist:
         url = "%s%s" % (target_url,word)
         url = url.strip()
-        r.get(url)
-        print(url,", ", r)
+        r = requests.get(url)
+        print(url,", ", r, ", ", r.text)
 
 
 if __name__ == "__main__":
