@@ -22,7 +22,7 @@ def connect(wordlist):
     for word in wordlist:
         url = "%s%s" % (target_url,word)
         url = url.strip()
-        r.get(url)
+        r = requests.get(url)
         print(url,", ", r)
 
 
