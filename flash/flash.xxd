@@ -1433,6 +1433,84 @@
 00005980: db2b 252b 462b db2b 9d2b a92b 2902 2808  .+%+F+.+.+.+).(.
 00005990: 641e 140a 321e 7524 4e25 2325 1f25 0d25  d...2.u$N%#%.%.%
 000059a0: 0166 6c61 677b 0064 3474 345f 0033 7866  .flag{.d4t4_.3xf
+  KaliSecurityGroup:
+  KaliSecurityGroup:
+  KaliSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      VpcId: !Ref VPC
+      GroupDescription: Enable SSH access via port 22 and open ports 1025 through 2048.
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: !Ref SSHLocation
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 130.108.0.0/16  # WSU CIDR
+        - IpProtocol: tcp
+          FromPort: '1025'
+          ToPort: '2048'
+          CidrIp: !Ref SSHLocation
+        - IpProtocol: tcp
+          FromPort: '1025'
+          ToPort: '2048'
+          CidrIp: 130.108.0.0/16  # WSU CIDR
+        - IpProtocol: -1
+          FromPort: '-1'
+          ToPort: '-1'
+          CidrIp: 10.0.0.0/16
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      VpcId: !Ref VPC
+      GroupDescription: Enable SSH access via port 22 and open ports 1025 through 2048.
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: !Ref SSHLocation
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 130.108.0.0/16  # WSU CIDR
+        - IpProtocol: tcp
+          FromPort: '1025'
+          ToPort: '2048'
+          CidrIp: !Ref SSHLocation
+        - IpProtocol: tcp
+          FromPort: '1025'
+          ToPort: '2048'
+          CidrIp: 130.108.0.0/16  # WSU CIDR
+        - IpProtocol: -1
+          FromPort: '-1'
+          ToPort: '-1'
+          CidrIp: 10.0.0.0/16
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      VpcId: !Ref VPC
+      GroupDescription: Enable SSH access via port 22 and open ports 1025 through 2048.
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: !Ref SSHLocation
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 130.108.0.0/16  # WSU CIDR
+        - IpProtocol: tcp
+          FromPort: '1025'
+          ToPort: '2048'
+          CidrIp: !Ref SSHLocation
+        - IpProtocol: tcp
+          FromPort: '1025'
+          ToPort: '2048'
+          CidrIp: 130.108.0.0/16  # WSU CIDR
+        - IpProtocol: -1
+          FromPort: '-1'
+          ToPort: '-1'
+          CidrIp: 10.0.0.0/16
 000059b0: 316c 5f00 7233 7633 7273 335f 0033 6e67  1l_.r3v3rs3_.3ng
 000059c0: 316e 3333 7231 6e67 7d00 e200 e900 ea00  1n33r1ng}.......
 000059d0: b500 b600 b700 cd00 8301 cc00 8a01 9201  ................
