@@ -1,18 +1,14 @@
 This repository contains links and scripts for getting stuff up and running as
 quickly as possibly for HackIN2020.
 
-`./buildfiles` contains singularity build files to get the necessary software
-installed (Ghidra, Radare2, AVRDUDE, QMK Toolbox).
-
-`install.sh` will install singularity, build the necessary containers, move them
-to `~/.singularity` and create aliases in `~/.bashrc` to execute the necessary
-programs inside their respective containers.
-
 ---
 
 #### Important Links
 * [Slack](http://hackin2020.slack.com/) 
 * [CTFd](https://hackin2020.ctfd.io/team)
+
+* [Atmel 32u4 datasheet](http://ww1.microchip.com/downloads/en/devicedoc/atmel-7766-8-bit-avr-atmega16u4-32u4_datasheet.pdf)
+
 
 ---
 #### Guides
@@ -21,5 +17,4 @@ programs inside their respective containers.
 * [Radare2 Intro](https://radare.gitbooks.io/radare2book/content/)
 * [Ghidra
   Tutorial](http://ghidra.re/courses/GhidraClass/Beginner/Introduction_to_Ghidra_Student_Guide_withNotes.html#Introduction_to_Ghidra_Student_Guide.html)
-
-
+* [Ghidra Download](https://ghidra-sre.org/)
