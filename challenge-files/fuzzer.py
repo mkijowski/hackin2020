@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import http.client
+import requests
 
+target_url     = "http://evil.ru.site:8080/"
+user_agent     = "Mozilla/5.0 (X11; Linux x86_64; rv:19.0) Gecko/20100101 Firefox/19.0"
 
 def read_from_file():
 	# create wordlist array
@@ -16,7 +19,11 @@ def read_from_file():
 
 
 def connect(wordlist):
-	# needs to be implemented
+    for word in wordlist:
+        url = "%s%s" % (target_url,word)
+        url = url.strip()
+        r.get(url)
+        print(url,", ", r)
 
 
 if __name__ == "__main__":
