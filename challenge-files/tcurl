@@ -1,0 +1,10 @@
+#!/bin/bash
+
+curl \
+-H "UserAgent:" \
+-H "Server: AmazonS3" \
+-H "Date: $(date)" \
+-H "Content-type: text/html" \
+-H "isAdmin: ?" \
+-H "definitelyadmin: ofcourse" \
+GET http://evil.ru.site:8080/admin/login
