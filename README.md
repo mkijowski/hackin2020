@@ -18,3 +18,4 @@ quickly as possibly for HackIN2020.
 * [Ghidra
   Tutorial](http://ghidra.re/courses/GhidraClass/Beginner/Introduction_to_Ghidra_Student_Guide_withNotes.html#Introduction_to_Ghidra_Student_Guide.html)
 * [Ghidra Download](https://ghidra-sre.org/)
+* [risc](https://github.com/openhwgroup/riscv_vm)
