@@ -23,12 +23,7 @@ def connect(wordlist):
         url = "%s%s" % (target_url,word)
         url = url.strip()
         r = requests.get(url)
-<<<<<<< HEAD
         print(url,", ", r, ", ", r.text)
-=======
-        print(url,", ", r)
->>>>>>> 700df924150d5128bd18c1cadec84358f7c59233
-
 
 if __name__ == "__main__":
 	wordlist = read_from_file()
