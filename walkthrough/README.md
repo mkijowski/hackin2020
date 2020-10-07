@@ -147,19 +147,17 @@ Probably best described via one of the top team's slides:
 
 ![Control Flow](images/control-flow.png)
 
-**Answer:** 
-
-
 ### USB
 *There is something weird with the USB behavior on the machine and we think it's coming from a kernel module. Reverse engineer any USB related functionality from the previously identified kernel modules.*
 
-**Answer:** 
+WSU did not answer this question and it was not an auto graded question so we do not have a "correct" answer.
+Our best guess is they were looking for USB weird behavior such as the kernel_poweroff command coming from `netfilter_lkm` when the maypad was unplugged.
 
 
 ### Structs in the Kernel
 *We need all the information from the struct that sets up the netfilter functionality. Identify and reconstruct the struct for netfilter.*
 
-**Answer:** 
+WSU did not answer this question and it was not an auto graded question so we do not have a "correct" answer.
 
 ---
 
