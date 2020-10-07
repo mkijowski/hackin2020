@@ -11,8 +11,7 @@ Yes, there was a flag in the rules.  Apparently those are important ;)
 
 ---
 
-#### Taking Inventory
-#### Part I
+### Taking Inventory
 *Identify the chipset the keypad uses.*
 
 Again, just need to look at it.
@@ -22,7 +21,7 @@ Again, just need to look at it.
 ---
 
 ### Basic Research
-#### Part I
+### Part I
 *We need to gain more information about the microcontroller on the device. How many general purpose registers are there?*
 
 Simply looks this up on the spec sheet for the controller.
