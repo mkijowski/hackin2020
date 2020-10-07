@@ -2,7 +2,7 @@ Here is a walkthrough of all challenges solved during HackIN2020 by the WSU team
 I will try to get solutions to the problems we did not solve as well and note whether the 
 solutions was obtained during the event or after.
 
-### Reading the rules
+## Reading the rules
 *Read the rules*
 
 Yes, there was a flag in the rules.  Apparently those are important ;)
@@ -11,7 +11,7 @@ Yes, there was a flag in the rules.  Apparently those are important ;)
 
 ---
 
-### Taking Inventory
+## Taking Inventory
 *Identify the chipset the keypad uses.*
 
 Again, just need to look at it.
@@ -20,7 +20,7 @@ Again, just need to look at it.
 
 ---
 
-### Basic Research
+## Basic Research
 ### Part I
 *We need to gain more information about the microcontroller on the device. How many general purpose registers are there?*
 
@@ -46,7 +46,7 @@ The first vector in an interrupt table is the "Reset Vector" and is usually a `J
 
 ---
 
-### What is it Running?
+## What is it Running?
 ### Part I
 *Dump the flash contents of the keypad in intel hex.  The flag is the MD5 hash of the file.*
 
@@ -112,7 +112,7 @@ We guessed that it was the `HackIN_HID` module.
 
 ---
 
-### Find the Kernel of Truth
+## Find the Kernel of Truth
 
 ### Part I
 *Reverse engineer the kernel module handling the keypad and find out what it executes.*
@@ -130,7 +130,7 @@ In the same function as above the  `netfilter_lkm` module is called.
 
 ---
 
-### netfilter
+## netfilter
 
 ### Remote Access
 *We noticed that the system reacts on its own sometimes. Find out if there is remote access and if so what is its address?*
@@ -163,7 +163,7 @@ Probably best described via one of the top team's slides:
 
 ---
 
-### Userland
+## Userland
 
 ### What is Running on the System?
 *Is there a file that autoexecutes when a device is plugged in? Is there a device manager or rules that provides this functionality? Provide the absolute path, including filename.*
@@ -182,8 +182,6 @@ The `99-maypad.rules` file tracks the state of the maypad and calls one of two f
 `connected.sh` appears to run when the USB device is connected, and logs the connect time to a `/tmp` file and uses `/bin/exfilpad` to do something.
 
 **Answer:** `/bin/exfilpad`
-
-
 
 ### What are the Artifacts?
 *The program must leave behind clues that it's running. Provide the absolute path, including filename.*
@@ -222,8 +220,6 @@ The same function that contained the konami code also contains the kill command,
 
 **Answer:** `A, A, A`
 
-
-
 ### Outbound Communication?
 *How does the keypad communicate with the python server? The flag is the domain.*
 
@@ -235,7 +231,7 @@ The same function that contained the konami code also contains the kill command,
 
 Because we did not solve ALL of the previous challenges we did not get access to these questions...
 
-### Py
+## Py
 ### HTTP Where?
 *Identify the executable/binary that runs the HTTP server. A flag marks the spot!*
 
@@ -255,7 +251,7 @@ All hail `strings`
 
 ---
 
-### Server
+## Server
 ### HTTP Dir Busting
 *We need to determine some of the functionality of the server. A co-worker started writing an application to test server endpoints/directories, but quickly noticed some server \"funny business\" and went home early. Please finish writing the script and report back with a list of valid server endpoints (URLs).  Please see the included python file and wordlist in the challenges folder.*
 
@@ -300,7 +296,7 @@ The alphabet being used was simply string.printable which is:
 
 This is where we stopped.
 
-### RISC-V
+## RISC-V
 ### Down the Rabbit Hole...
 *The RISC-V executable has a hidden passphrase that a very clever and persistent reverse engineer may be able to uncover. Find and provide the passphrase.*
 
