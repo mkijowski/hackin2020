@@ -1,0 +1,2 @@
+SUBSYSTEM=="usb", ACTION=="add", ATTRS{idProduct}=="6060", ATTRS{idVendor}=="feed", RUN+="/bin/connected.sh"
+SUBSYSTEM=="usb", ACTION=="remove", ATTRS{idProduct}=="6060", ATTRS{idVendor}=="feed", RUN+="/bin/disconnected.sh"
