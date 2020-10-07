@@ -3,7 +3,7 @@ quickly as possibly for HackIN2020.
 
 ---
 
-#### Important Links
+### Important Links
 * [Slack](http://hackin2020.slack.com/) 
 * [CTFd](https://hackin2020.ctfd.io/team)
 
@@ -11,7 +11,7 @@ quickly as possibly for HackIN2020.
 
 
 ---
-#### Guides
+### Guides
 * [Reverse Engineering for Beginners](https://beginners.re/)
 * [CTF Field Guide](https://trailofbits.github.io/ctf/)
 * [Radare2 Intro](https://radare.gitbooks.io/radare2book/content/)
