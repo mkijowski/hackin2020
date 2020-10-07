@@ -144,6 +144,10 @@ In the same function as above the  `netfilter_lkm` module is called.
 #### Control Flow
 *Now that we know there's remote access, we need to understand how the kernel module recognizes it. Reverse engineer the mechanics of the remote access and outline the control flow.*
 
+Probably best described via one of the top team's slides:
+
+
+
 **Answer:** 
 
 
