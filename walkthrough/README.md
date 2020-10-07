@@ -7,7 +7,7 @@ solutions was obtained during the event or after.
 
 Yes, there was a flag in the rules.  Apparently those are important ;)
 
-**Answer:** hackin{s4n1ty_ch3ck}
+**Answer:** `hackin{s4n1ty_ch3ck}`
 
 ---
 
@@ -120,7 +120,7 @@ We guessed that it was the `HackIN_HID` module.
 
 Opening and analyzing the `HackIN_HID.ko` file with Ghidra allowed us to look at all functions in this code.  The `hid_hackin_probe` function has a local variable with the contents `/bin/explorer.exe` that appears to run conditionally.  This can be verified with watching the behavior of the linux VM provided, when the keypad is plugged in something on the system runs a process named `explorer.exe`.
 
-**Answer:** /bin/explorer.exe
+**Answer:** `/bin/explorer.exe`
 
 #### Part II
 *We need to find out if any other kernel modules are loaded. Find out if another kernel module is loaded by the HackIN_HID module; if so, what is it?*
@@ -240,7 +240,7 @@ All hail `strings`
 
 **Answer:** `HackIN{using_Strings_FTW!}`
 
-##### We're Gonna Need a Bigger (Data) Boat
+#### We're Gonna Need a Bigger (Data) Boat
 *There appears to be a lot of data in the binary. We should examine it closely and see what we find.*
 
 **Answer:** `HackIN{cann0t_5ee_+he_f0res+f0r+he_+ree5}`
