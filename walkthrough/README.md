@@ -146,7 +146,7 @@ In the same function as above the  `netfilter_lkm` module is called.
 
 Probably best described via one of the top team's slides:
 
-
+![Control Flow](images/control-flow.png)
 
 **Answer:** 
 
