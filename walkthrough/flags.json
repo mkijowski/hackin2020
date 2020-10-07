@@ -1,0 +1,314 @@
+{
+    "count": 44,
+    "results": [
+        {
+            "id": 1,
+            "challenge_id": 1,
+            "type": "static",
+            "content": "hackin{s4n1ty_ch3ck}",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 2,
+            "challenge_id": 2,
+            "type": "static",
+            "content": "32",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 3,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x0000",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 4,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x001F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 5,
+            "challenge_id": 4,
+            "type": "static",
+            "content": "JMP",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 6,
+            "challenge_id": 5,
+            "type": "static",
+            "content": "atmega32u4",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 7,
+            "challenge_id": 5,
+            "type": "static",
+            "content": "mega32u4",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 8,
+            "challenge_id": 6,
+            "type": "static",
+            "content": "10e1ebfdcaea388888757ff1b84a5579",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 9,
+            "challenge_id": 7,
+            "type": "static",
+            "content": "b99b6ae4a4b47506c5f0ada409e20b66",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 11,
+            "challenge_id": 9,
+            "type": "static",
+            "content": "flag{d4ta_3xf1l_r3v3rs3_3ng1n33r1ng}",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 13,
+            "challenge_id": 11,
+            "type": "static",
+            "content": "HackIN_HID",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 14,
+            "challenge_id": 12,
+            "type": "static",
+            "content": "/bin/explorer.exe",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 15,
+            "challenge_id": 13,
+            "type": "static",
+            "content": "netfilter_lkm",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 16,
+            "challenge_id": 14,
+            "type": "static",
+            "content": "175.129.12.94",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 17,
+            "challenge_id": 18,
+            "type": "static",
+            "content": "/etc/udev/rules.d/99-maypad.rules",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 19,
+            "challenge_id": 21,
+            "type": "static",
+            "content": "/tmp/maypad.pid",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 20,
+            "challenge_id": 23,
+            "type": "static",
+            "content": "aaa",
+            "data": ""
+        },
+        {
+            "id": 21,
+            "challenge_id": 24,
+            "type": "static",
+            "content": "evil.ru.site",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 22,
+            "challenge_id": 25,
+            "type": "static",
+            "content": "HackIN{using_Strings_FTW!}",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 23,
+            "challenge_id": 26,
+            "type": "static",
+            "content": "HackIN{cann0t_5ee_+he_f0res+f0r+he_+ree5}",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 24,
+            "challenge_id": 27,
+            "type": "static",
+            "content": "HackIN{|\\/|a+ry05hka}",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 25,
+            "challenge_id": 30,
+            "type": "static",
+            "content": "HackIN{GE0RG3_B00LE_would_be_very_upset}",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 26,
+            "challenge_id": 31,
+            "type": "static",
+            "content": "HackIN{it'5_ju5t_Vigenere_c1ph3r_w1+h_3xtra_5t3ps}",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 27,
+            "challenge_id": 32,
+            "type": "static",
+            "content": "Lucky7h1r733n",
+            "data": ""
+        },
+        {
+            "id": 28,
+            "challenge_id": 33,
+            "type": "static",
+            "content": "3",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 29,
+            "challenge_id": 34,
+            "type": "static",
+            "content": "HackIN2020_HwuRrCtF%En2!eKT",
+            "data": ""
+        },
+        {
+            "id": 30,
+            "challenge_id": 8,
+            "type": "programmable",
+            "content": "def check(x):\r\n    if x is None:\r\n        return False\r\n\r\n    pin_list = [\"C6\", \"D7\", \"E6\", \"B4\", \"B5\", \"F6\", \"F7\", \"B1\", \"B3\"]\r\n    flag_list = list(x.upper().replace(\" \", \"\").split(\",\"))\r\n\r\n    if len(flag_list) is not len(pin_list):\r\n        return False\r\n    else:\r\n        for pin in pin_list:\r\n            try:\r\n                flag_list.remove(pin)\r\n            except ValueError:\r\n                return False\r\n\r\n    #  if list is empty\r\n    if not flag_list:\r\n        return True\r\n    #  otherwise\r\n    else:\r\n        return False",
+            "data": null
+        },
+        {
+            "id": 31,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x0000 - 0x001F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 32,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x0000-0x001F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 33,
+            "challenge_id": 19,
+            "type": "static",
+            "content": "/bin/exfilpad",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 34,
+            "challenge_id": 10,
+            "type": "static",
+            "content": "0x2cc6",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 35,
+            "challenge_id": 10,
+            "type": "static",
+            "content": "DAT_code_002cc6",
+            "data": ""
+        },
+        {
+            "id": 36,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x00-0x1F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 37,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x1F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 38,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x00",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 39,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x00 - 0x1F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 40,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x00 -0x1F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 41,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x00- 0x1F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 42,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x0000 -0x001F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 43,
+            "challenge_id": 3,
+            "type": "static",
+            "content": "0x0000- 0x001F",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 44,
+            "challenge_id": 6,
+            "type": "static",
+            "content": "cd8fab7c2b2b4a0af054a0c8325d4334",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 45,
+            "challenge_id": 7,
+            "type": "static",
+            "content": "8dce22b889e57a1f250c28f4e9817dce",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 46,
+            "challenge_id": 26,
+            "type": "static",
+            "content": "HackIN{cann0t_5ee_+he_f0res+_f0r_+he_+ree5}",
+            "data": "case_insensitive"
+        },
+        {
+            "id": 47,
+            "challenge_id": 10,
+            "type": "static",
+            "content": "0x00002cc6",
+            "data": "case_insensitive"
+        }
+    ],
+    "meta": {}
+}
