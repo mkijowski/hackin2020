@@ -18,7 +18,7 @@ Below are some of the more interesting files and their locations in the VM.
 to Ryan for more about these.
 
 ### Files of interest
-* `/tmp/maypad.pid` appears empty, maybe kicks up when the secret keycombo is
+* `/tmp/maypad.pid` appears empty, maybe kicks up when the secret key combination is
   entered
 * `/tmp/maypad_scripts.log` appears to have date.time stamps alongside connected
   and disconnected entries.  A disconnect creates one `disconnected at` entry but a

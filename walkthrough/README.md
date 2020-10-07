@@ -50,7 +50,7 @@ The first vector in an interrupt table is the "Reset Vector" and is usually a `J
 ### Part I
 *Dump the flash contents of the keypad in intel hex.  The flag is the MD5 hash of the file.*
 
-This is tricky since being able to access the bootloader took some time and debugging on our end.  The hardest two parts were identifying what `avrdude` command options to use, specifically for the programmer type (`-c` option), and the interface to use (`-P` option).  As it turns out, all of the usb `/dev/tty` options were wrong, and the device is only reachable via `avrdude` for a few seconds after a reset.  Jumping the reset pin (can be identified from the datasheet) and monitoring all changes to devices in `/dev` showed us that a `/dev/ttyACM0` device is available briefly after reset.  Combining that with some internet searching that states most of these types of chips use the `-c avr109` programmer and we had the following command:
+This is tricky since being able to access the bootloader took some time and debugging on our end.  The hardest two parts were identifying what `avrdude` command options to use, specifically for the programmer type (`-c` option), and the interface to use (`-P` option).  As it turns out, all of the USB `/dev/tty` options were wrong, and the device is only reachable via `avrdude` for a few seconds after a reset.  Jumping the reset pin (can be identified from the datasheet) and monitoring all changes to devices in `/dev` showed us that a `/dev/ttyACM0` device is available briefly after reset.  Combining that with some internet searching that states most of these types of chips use the `-c avr109` programmer and we had the following command:
 
 `sudo avrdude -p m32u4 -c avr109 -P /dev/ttyACM0 -U flash:r:"flash.hex":i`
 
@@ -117,7 +117,7 @@ We guessed that it was the `HackIN_HID` module.
 ### Part I
 *Reverse engineer the kernel module handling the keypad and find out what it executes.*
 
-Opening and analyzing the `HackIN_HID.ko` file with Ghidra allowed us to look at all functions in this code.  The `hid_hackin_probe` function has a local variable with the contents `/bin/explorer.exe` that appears to run conditionally.  This can be verified with watching the behavior of the linux VM provided, when the keypad is plugged in something on the system runs a process named `explorer.exe`.
+Opening and analyzing the `HackIN_HID.ko` file with Ghidra allowed us to look at all functions in this code.  The `hid_hackin_probe` function has a local variable with the contents `/bin/explorer.exe` that appears to run conditionally.  This can be verified with watching the behavior of the Linux VM provided, when the keypad is plugged in something on the system runs a process named `explorer.exe`.
 
 **Answer:** `/bin/explorer.exe`
 
@@ -151,7 +151,7 @@ Probably best described via one of the top team's slides:
 *There is something weird with the USB behavior on the machine and we think it's coming from a kernel module. Reverse engineer any USB related functionality from the previously identified kernel modules.*
 
 WSU did not answer this question and it was not an auto graded question so we do not have a "correct" answer.
-Our best guess is they were looking for USB weird behavior such as the kernel_poweroff command coming from `netfilter_lkm` when the maypad was unplugged.
+Our best guess is they were looking for USB weird behavior such as the kernel_power_off command coming from `netfilter_lkm` when the Maypad was unplugged.
 
 
 ### Structs in the Kernel
@@ -164,7 +164,7 @@ WSU did not answer this question and it was not an auto graded question so we do
 ## Userland
 
 ### What is Running on the System?
-*Is there a file that autoexecutes when a device is plugged in? Is there a device manager or rules that provides this functionality? Provide the absolute path, including filename.*
+*Is there a file that auto executes when a device is plugged in? Is there a device manager or rules that provides this functionality? Provide the absolute path, including filename.*
 
 Poking around in `/etc/udev/rules.d/` yielded results!
 
@@ -173,7 +173,7 @@ Poking around in `/etc/udev/rules.d/` yielded results!
 ### What is Being Executed?
 *Find the executable of the file that executes the user program. Provide the absolute path, including filename.*
 
-The `99-maypad.rules` file tracks the state of the maypad and calls one of two files:
+The `99-maypad.rules` file tracks the state of the Maypad and calls one of two files:
 * `/usr/bin/connected.sh`
 * `/usr/bin/disconnected.sh`
 
@@ -214,7 +214,7 @@ Since the event codes are in decimal and the `exfilpad` data is in hex we transl
 ### Emergency Meeting!
 *Figure out the correct sequence of keys in order to trigger the \"kill switch\".*
 
-The same function that contained the konami code also contains the kill command, which is a simple three keystroke check.
+The same function that contained the Konami code also contains the kill command, which is a simple three keystroke check.
 
 **Answer:** `A, A, A`
 
@@ -242,7 +242,7 @@ All hail `strings`
 
 **Answer:** `HackIN{cann0t_5ee_+he_f0res+f0r+he_+ree5}`
 
-### Whoah, That was a Lot of Snakes! 
+### Whoa, That was a Lot of Snakes! 
 *We need to find out what this script does. There is probably some hidden data (flag) somewhere in here. Get to it!*
 
 **Answer:** `HackIN{|\\/|a+ry05hka}`
@@ -260,7 +260,7 @@ For this challenge we modified a previous directory buster to capture more of th
 ### HTTP Traffic Exploration
 *Explore server traffic for any lazy programming.*
 
-We noticed an interesting header in the response from the server when accessing some dir-busted directories.
+We noticed an interesting header in the response from the server when accessing some of the above busted directories.
 
 `isAdmin: ? `
 
@@ -277,7 +277,7 @@ Ugh.  We were incredibly close to getting this one.
 
 The breakthrough came when we realized that we can send data to the `http://evil.ru.site:8080/dump/` site and it would create log files on the system.  These log files had three sections, of which the first and third section were static.
 
-It turns out we could directly control the second section.  By entering data after the url we could change what was encoded in the second section.  We also needed to separately realize *HOW* the data was being encoded.  All of the data was encoded with either a blank space or a `.`.  Sections were separated by `...`.  By counting how many white space characters there were in between the dots in decimal we got the decimal representation of a character.  There were an equal number of decimal representations of characters in the output as there were characters in the input.  For example:
+It turns out we could directly control the second section.  By entering data after the URL we could change what was encoded in the second section.  We also needed to separately realize *HOW* the data was being encoded.  All of the data was encoded with either a blank space or a `.`.  Sections were separated by `...`.  By counting how many white space characters there were in between the dots in decimal we got the decimal representation of a character.  There were an equal number of decimal representations of characters in the output as there were characters in the input.  For example:
 
 `http://evil.ru.site:8080/dump/AAAAAAAAAA` had 10 characters of input, `AAAAAAAAAA` and would generate something like the following: `32 79 60 75 77 85 61 92 67 65`  (2 notes: 1, this is counting the number of white space characters between `.` and 2, this is not actually what AAAAAAAAAA would return).
 
